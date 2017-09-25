@@ -17,11 +17,11 @@ class YourAgeInNumber:
         return  (int(self.current_month) - self.b_month) + 12 if int(self.current_month) < self.b_month else  abs(int(self.current_month) - self.b_month)
 
     def cal_year(self):
-        return abs(int(self.current_year) - self.b_year) - 1 if self.current_month > self.b_month or (self.current_month == self.b_month and int(self.current_day) > self.b_day) else abs(int(self.current_year) - self.b_year)
+        return (int(self.current_year) - self.b_year) - 1 if int(self.current_month) < self.b_month or (self.current_month == self.b_month and int(self.current_day) > self.b_day) else abs(int(self.current_year) - self.b_year)
 
     def __str__(self):
-        return 'You\'re {} Years {} month and {} days old'.format(str(self.cal_year()),str(self.cal_month()),str(self.cal_day()))
+        return "You\'re {} Years {} month and {} days old".format(self.cal_year(),self.cal_month(),self.cal_day())
 
 
-a = YourAgeInNumber(b_day=19,b_month=9,b_year=1980)
-print a
+a = YourAgeInNumber(b_day=17,b_month=9,b_year=1982)
+print(a)
